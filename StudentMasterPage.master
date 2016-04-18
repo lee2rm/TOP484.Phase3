@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" MasterPageFile="MasterPage.master" AutoEventWireup="true" CodeFile="StudentMasterPage.master.cs" Inherits="StudentMasterPage"%> 
+
+<asp:Content ID="Content1" ContentPlaceHolderID="foobar" Runat="Server">
+
+<!-- STUDENT SUB-MASTERPAGE -->
+
+<!-- UNIQUE MENU (HEADER / FOOTER) ITEMS  -->
+  <!-- HEADER -->
+
+    <asp:Panel ID="Panel1" runat="server">
+
+      <li class="ui-data-menu"><a href="ViewProfile.aspx">View Profile</a> </li> <!-- either change this to view your profile or link to pathbrite TBD-->
+      <li class="menu no-mobile"><a href="ViewCalendar.aspx">View Calendar</a></li>
+      <li class="menu no-mobile"><a href="Student.SearchClasses.aspx">Search Classes</a></li>
+      <li class="menu no-mobile"><a href="Student.EvaluationHomePage.aspx">View Your Evaluations</a></li>
+      <li class="menu no-mobile"><a href="Student.ClassEvaluation.aspx">Evaluate Class</a></li>
+
+    </asp:Panel>
+    <!-- END HEADER -->
+
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="foo" Runat="Server">
+  <!-- BODY MENU -->
+      <asp:Panel ID="Panel2" runat="server">
+
+     <li><a href="ViewProfile.aspx">View Profile</a> </li>
+      <li><a href="ViewCalendar.aspx">View Calendar</a></li>
+      <li><a href="Student.SearchClasses.aspx">Search Classes</a></li>
+      <li><a href="Student.EvaluationHomePage.aspx">View Your Evaluations</a></li>
+      <li><a href="Student.ClassEvaluation.aspx">Evaluate Class</a></li>
+
+    </asp:Panel>  
+  <!-- END BODY MENU -->
+</asp:Content>
+
+
+
+<asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="body" runat="server">
+<!-- BODY CONTENT -->
+    <asp:panel runat="server" id="mainContent" >
+        <div class="mainContent">
+        <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />
+        </div>
+    </asp:panel>
+<!-- END BODY CONTENT -->
+</asp:Content>
