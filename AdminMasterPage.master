@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" MasterPageFile="MasterPage.master"%> 
+
+<asp:Content ID="header" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder Id="stylehead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="foobar" Runat="Server">
+<!-- ADMIN SUB-MASTERPAGE -->
+
+<!-- UNIQUE MENU (HEADER / FOOTER) ITEMS  -->
+  <!-- HEADER -->
+    <asp:Panel ID="Panel1" runat="server">
+        <li><a href="Admin.ManageAccounts.aspx">Manage Accounts</a>
+            <ul>
+                <li><a href="Admin.AddUser.aspx">Add New User</a></li>
+            </ul>
+        </li>
+        <li><a href="Admin.ManageContent.aspx">Manage Content</a> 
+            <ul>
+                <li><a href="Admin.AddContent.aspx">Add Content</a></li>
+                </ul>
+            </li>
+        <li><a href="Admin.ManageEvents.aspx">Manage Events</a> 
+            <ul>
+                <li><a href="Admin.AddEvent.aspx">Add Event</a></li>
+            </ul>
+        </li>
+        <li><a href="Inventory.aspx">Manage Inventory</a> 
+        </li>
+        <li><a href="Admin.MakeNotification">Send Notification</a></li>
+        <li><a href="ViewCalendar.aspx">View Calendar</a></li>
+        <li><a href="Admin.Dashboard.aspx">View Dashboard</a></li>
+    </asp:Panel>
+    <!-- END HEADER -->
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="foo" Runat="Server">
+  <!-- BODY MENU -->
+    <asp:Panel ID="Panel2" runat="server">
+        <li><a href="Admin.ManageAccounts.aspx">Manage Accounts</a>
+            <ul>
+                <li><a href="Admin.AddUser.aspx">Add New User</a></li>
+            </ul>
+        </li>
+        <li><a href="Admin.ManageContent.aspx">Manage Content</a> 
+            <ul>
+                <li><a href="Admin.AddContent.aspx">Add Content</a></li>
+                </ul>
+            </li>
+        <li><a href="Admin.ManageEvents.aspx">Manage Events</a> 
+            <ul>
+                <li><a href="Admin.AddEvent.aspx">Add Event</a></li>
+            </ul>
+        </li>
+        <li><a href="Inventory.aspx">Manage Inventory </a>
+        </li>
+        <li><a href="Admin.MakeNotification.aspx">Send Notification</a></li>
+        <li><a href="ViewCalendar.aspx">View Calendar</a></li>
+        <li><a href="Admin.Dashboard.aspx">View Dashboard</a></li>
+    </asp:Panel>
+    <!-- END BODY MENU -->
+</asp:Content>
+
+
+<asp:Content ID="ContentPlaceHolder1"  ContentPlaceHolderID="body" runat="server">
+<!-- BODY CONTENT -->
+    <asp:panel ID="Panel4" runat="server">
+        <div class="mainContent">
+        <asp:ContentPlaceHolder  Id="ChildContent1"  runat="server" />
+            </div>
+    </asp:panel>
+<!-- END BODY CONTENT -->
+</asp:Content>

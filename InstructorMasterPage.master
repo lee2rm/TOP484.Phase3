@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="InstructorMasterPage.master.cs" Inherits="InstructorMasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="foobar" Runat="Server">
+<!-- INSTRUCTOR SUB-MASTERPAGE -->
+
+<!-- UNIQUE MENU (HEADER / FOOTER) ITEMS  -->
+    <!-- HEADER -->
+    <asp:Panel ID="Panel1" runat="server">
+
+        <li><a href="Instructor.TakeAttendance.aspx">Take Attendance</a></li>
+        <li><a href="Instructor.SubmitLessonPlan.aspx">Submit Lesson Plan</a></li>
+        <li><a href="Instructor.StudentEvaluationHomePage.aspx">Submit Student Evaluations</a></li>
+        <li><a href="Instructor.EvaluationHomePage.aspx">View Your Evaluations</a></li>
+        <li><a href="ViewCalendar.aspx">View Calendar</a> </li>
+
+    </asp:Panel>
+    <!-- END HEADER -->
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="foo" Runat="Server">
+    <!-- BODY MENU -->
+    <asp:Panel ID="Panel2" runat="server">
+
+        <li><a href="Instructor.TakeAttendance.aspx">Take Attendance</a></li>
+        <li><a href="Instructor.SubmitLessonPlan.aspx">Submit Lesson Plan</a></li>
+        <li><a href="Instructor.StudentEvaluationHomePage.aspx">Submit Student Evaluations</a></li>
+        <li><a href="Instructor.EvaluationHomePage.aspx">View Your Evaluations</a></li>
+        <li><a href="ViewCalendar.aspx">View Calendar</a> </li>
+
+    </asp:Panel>
+    <!-- END BODY MENU -->
+
+</asp:Content>
+
+
+
+<asp:Content ID="ContentPlaceHolder1" ContentPlaceHolderID="body" runat="server">
+<!-- BODY CONTENT -->
+    <asp:panel runat="server" id="mainContent">
+        <div class="mainContent">
+        <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />
+        </div>
+    </asp:panel>
+<!-- END BODY CONTENT -->
+</asp:Content>

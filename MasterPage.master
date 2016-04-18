@@ -1,0 +1,243 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head id="Head1" runat="server">
+	    <title>Words Beats &amp; Life Inc. | Teaching Convening Presenting Hip-Hop Since 2002</title>
+	    <meta charset="utf-8"/>
+	    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+	    <meta name="description" content="Connecting Hip-Hop since 2000."/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	    <!-- FAVICON -->
+	    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	    <!-- END FAVICON -->
+
+	    <!-- RALEWAY FONT -->
+	    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css"/>
+	    <!-- END RALEWAY FONT -->
+
+	   	<!-- STYLESHEETS -->
+	    <link rel="stylesheet" type="text/css" href="css/normalize.min.css" />
+	    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+	    <!-- Latest compiled and minified CSS -->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+	    <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+	    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/forms.css" />
+	    <!--[if lt IE 9]>
+	    <link rel="stylesheet" href="css/jquery.galereya.ie.css">
+	    <![endif]-->
+	    <!-- END STYLESHEETS -->
+
+	    <!-- JAVASCRIPT -->
+	    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>-->
+	    <!-- END JAVASCRIPT -->
+        
+		<!-- UNIQUE HEADERS (is this necessary?) -->
+        <asp:ContentPlaceHolder id="head" runat="server">
+
+    	</asp:ContentPlaceHolder>
+    	<!-- END UNIQUE HEADERS -->
+
+
+        <style type="text/css">
+            #footerLogo {
+                height: 8%;
+                width: 8%;
+                position: relative;
+                float: left;
+                padding: 5px 0 10px 0;
+                margin-left: -250px;
+                margin-top: -25px;
+            }
+            #wrapperHeader {
+				position: relative;
+				background-image:url(img/wblheader.jpg);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                box-shadow: 0 3px 5px #888888;
+			}
+            #notificationMenu {
+                position: relative;
+                margin-left: 5px;
+               margin-top: -17px;
+                text-align: right;
+                width: 40%;
+                float: left;
+                    }
+            #contenthere {
+                position: absolute;
+                margin-left: 400px;
+                margin-top: 100px;
+            background-color: white;
+            box-shadow: 0 3px 5px #888888;
+            width: 25%;
+            height: 25%;
+            }
+            #foo {
+                color: white;
+            }
+            #btnLogOut {
+                color: white;
+                display: inline;
+                 position: relative;
+                float: right;
+                width: 25%;
+                position: relative;
+                width: 20%;
+                text-align: left;
+                background-color: #172129;
+            }
+            #donate {
+                  display: inline;
+                width: 118px;
+                    float: right;
+                padding-right: 40px;
+                margin-top: -30px;
+                    margin-right: 3%;
+            }
+            #paypallbtn {
+                  margin: 1em 1em;
+                display: inline;
+                float: right;
+            }
+
+        </style>
+
+	</head>
+	<body runat="server">
+		<header runat="server">
+			<!-- BEGIN LOGO-BRANDING -->
+			<div id="wrapperHeader">
+            <div id="branding">
+                <img id="branding-logo" src="img/logo.png" alt="Words Beats & Life Inc. Logo" />
+            </div>
+                <div id="donate">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <%--<img src="<%=MakeImageSrcData("C:/Users/lee2rm/Desktop/Top484CS-master5/Top484CS-master/img/paypalprocess.png") %>" />
+                    --%><br /><br /><input type="hidden" name="cmd" value="_donations">
+                    <input type="hidden" name="business" value="top484.wordsbeatslifeproject@gmail.com">
+                    <input type="hidden" name="lc" value="US">
+                    <input type="hidden" name="item_name" value="Words Beats and Life, Inc">
+                    <input type="hidden" name="item_number" value="WBL">
+                    <input type="hidden" name="no_note" value="0">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>                
+
+                </div>
+             </div>
+
+			<!-- END LOGO-BRANDING -->
+
+			<!-- BEGIN ICONIC NAVIGATION CONTROLS -->
+		    <ul  class="navigation-controls" runat="server">
+				<li id="stackMenu" class="mobile-only">
+					<i class="fa fa-bars icon"></i>
+					<span class="usupur">Menu</span>
+				</li>
+		        
+                <li id="notificationMenu" runat="server">
+                    <span id="numNotif" class="usupur" runat="server"></span>
+		        	<i class="fa fa-bell icon" id="redIcon" runat="server"></i>
+		        	<span class="usupur" id="redText" runat="server">Notifications</span>
+                   </li>
+                <li><a href="#" class="usupur" id="btnLogOut" runat="server" onServerClick="btnLogOut_Click">Log Out</a></li>
+		    </ul>
+             
+		       
+		    <!-- END ICONIC NAVIGATION CONTROLS -->
+
+		    <!-- BEGIN NAVIGATION BAR -->
+		    <nav>
+		    	<ul class="mobile-only"><h5>Navigation</h5></ul>
+		        <li><a href="Hub.aspx">The Hub</a></li>
+                <li><a href="Wall.aspx">Wall</a></li>
+		       	<li><a href="ViewCalendar.aspx">Events</a></li>
+		        <li><a href="Inventory.aspx">Bucks Shop</a></li>
+                <li ><a href="MyAccount.aspx">My Account</a></li>
+                
+                <!-- MOBILE ONLY ITEMS (UNIQUE MENU) WILL APPEAR HERE -->
+                <div class="mobile-only">
+                	<h5>Menu</h5>
+                	<ul>
+	                <asp:ContentPlaceHolder id="foobar" runat="server">
+
+	                </asp:ContentPlaceHolder>
+	                </ul>
+	            </div>
+                <!-- END MOBILE ONLY ITEMS -->
+		    </nav>
+		    <!-- END NAVIGATION BAR -->
+		</header> 
+		<!-- END HEADER -->
+
+        <!-- BEGIN NOTIFICATION & SEARCH MENU (Icon List)-->
+		<ul id="notif" runat="server" class="menu ui-icon-list ui-menu-large">
+		</ul>
+        <!-- END NOTIFICATION MENU (Icon List) -->
+
+        <!-- MAIN CONTENT -->
+		<aside>
+			<!-- MENU CONTENT PLACEHOLDER -->
+			<p class="pre-menu no-mobile">Menu</p>
+			<ul class="menu no-mobile">
+		    	<asp:ContentPlaceHolder id="foo" runat="server">
+		    
+		    	</asp:ContentPlaceHolder>
+	    	</ul>
+	    	<!-- END MENU CONTENT PLACEHOLDER -->
+	   
+			<!-- BEGIN UPCOMING EVENTS (Icon List) -->
+			<p class="pre-menu">Upcoming Events</p>
+			<ul id="currentEvents" runat="server" class="menu ui-icon-list">
+                <li runat="server" id="event1" class="fa fa-calendar"><p id="e1Date" runat="server"></p></li>
+				<li runat="server" id="event2" class="fa fa-calendar"><p id="e2Date" runat="server"></p></li>
+                <li id="event3" runat="server" class="fa fa-calendar"><p id="e3Date" runat="server"></p></li>
+			</ul>
+			<!-- END UPCOMING EVENTS -->
+		</aside>
+
+		<!-- BEGIN SKELETON GRID (max-width 1080px) -->
+        <article class="container">
+        	<div class="row">
+		        <!-- BODY CONTENT PLACEHOLDER-->
+		        <div class="ui-full-width">
+		        	<asp:ContentPlaceHolder id="body" runat="server">
+		        
+		        	</asp:ContentPlaceHolder>
+		    	</div>
+		    	<!-- END BODY CONTENT PLACEHOLDER -->
+		    </div>
+		</article>
+		<!-- END MAIN CONTENT -->
+		<!-- END SKELETON GRID -->
+
+		<!-- SKELETON GRID -->
+	    <footer>
+	    	<div class="container">
+	    		<img id="footerLogo" src="img/WBL_LOGO_blk.png" class="img-responsive" alt="small WBL logo"/>
+	    		<div class="row" style="text-align: center; color:gray;"><p>website & content &copy; 2016 top 484!</p></div>
+	    	</div>
+	    </footer>
+	    <!-- END SKELETON GRID -->
+
+		<!-- SCRIPTS -->
+	    	<!-- JQUERY -->
+		    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+			<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+			<!-- PLUGINS.JS -->
+			<script src="js/plugins.js"></script>
+			<!-- MAIN.JS -->
+			<script src="js/main.js"></script>
+			<!-- BOOSTRAP MINFIED JS -->
+			<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>-->
+		<!-- END SCRIPTS -->
+	</body>
+</html>
