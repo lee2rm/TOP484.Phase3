@@ -1,0 +1,147 @@
+﻿@charset "UTF-8";
+/*css document*/
+
+body {
+	background-color:  rgba(47,79,90,1);
+    color: white;
+}
+
+
+#googleMap {
+    width: 400px; 
+    height: 300px;
+    margin: 0px auto 0px auto;
+    float: right;
+}
+
+.navbox {
+    background-color: #000;
+     /*darker grey background color for the nav pills across the page*/
+    
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    color: white;
+    text-decoration: none;
+    background-color: #22eecf;
+}
+
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #9a9999;/*this is the light grey*/
+    }
+.greentopbox {
+    background-color: #70875b;
+    margin-top: 30px;
+    height: 40px;
+}
+.greenbotbox {
+    background-color: #70875b;
+    margin-bottom: 30px;
+    height: 40px;
+}
+.maincontent {
+    background-color: white; 
+    padding: 40px;
+
+}
+.about {
+    text-indent: 15px;
+}
+
+.option, .lables {
+	margin-top: 15px;
+}
+
+.option { text-align: right;
+	padding:50px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background-color: #9a9999;
+}
+
+a { color: white;}/*this is the text in the nav*/
+
+p {
+    color: black;
+    font-family: "Ovo" , Minion, serif;
+    font-size: 16px;
+}
+h3 {
+    font-family:  "Skyfall" , Minion, serif;
+    color: white;
+}
+.contact {
+    font-family:  "Ovo" , Minion, serif;
+    color: #452900;
+    font-size: 20px;
+}
+.footer {
+	background-color: #030303;
+	padding:20px;
+	padding-top: 30px;
+    margin-top:380px;
+    border-top: 12px solid #22eecf;
+
+}
+.jumbotron {
+	    padding: 30px 15px;
+    margin-bottom: 30px;
+    color: white;
+    background-color: white;
+}
+.btn-primary {
+    color: white;
+    background-color: black;
+    /*background-color: purple;*/
+    border-color: white;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #22eecf;
+    border-color: #204d74;
+}
+
+.btn-default {
+    color: white;
+    background-color: black;
+    border-color: black;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    background-color: #22eecf;
+    border-color: #adadad;
+}
+
+.img-fullwidth { 
+    width: 1170px;
+    }
+	
+#signUp {
+	background-color: #22eecf;
+	border-color: #adadad;
+}
+#signUp:hover {
+	background-color: black;
+}
+#password {
+	color: #3366FF;
+	text-decoration: underline;
+	text-align: right;
+
+}
+        @font-face {
+    font-family: "Skyfall";
+    src: url("../fonts/SkyFall.ttf");
+    font-weight: normal;
+    font-style: normal;
+        }
+        @font-face {
+    font-family: "Ovo";
+    src: url("../fonts/Ovo-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+        }
+		

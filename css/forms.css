@@ -1,0 +1,114 @@
+
+
+        #allInfo {
+        width: 60%;
+        padding: 10px;
+        }        
+
+        .infoBlock {
+        width: 70%;
+        padding: 10px;
+       
+        }
+
+        #sEdInfoBlock {
+            width: 80%;
+            padding: 10px;
+        }
+
+        .labels {
+         display: block;
+         margin: -4px;
+        }
+       
+       .textbox {
+         width: 30%;
+         float: right;
+            }
+        .dropdowns {
+            width: 60%;
+            float: right;
+        }
+        #sEdInfoBlock .textbox{
+            width: 55%;
+
+        }
+        
+        #sEdInfoBlock .dropdowns{
+            width: 55%;
+
+        }
+            
+        .radioButtons {
+          margin-left: 40%;   
+          display: inline;
+          margin-top: -10px;
+            }
+
+        .buttons {
+          width: 30%;
+          margin-left: 30%;
+          margin-top: 3%;
+          
+        }
+        .rdoTextBox {
+            float:right;
+            display: inline;
+            width: 45%;
+        }
+
+        /*Additional forms*/
+		
+		.formE {
+			width: 50%;
+			
+		}
+
+		.formE .textbox, .dropdowns {
+			float: right;
+			width: 60%;
+			display: inline-block;
+			margin-bottom: 0;
+			color: black;
+			height: 2.2em;
+			
+			
+		}
+		.drop {
+			color: black;
+			height: 2.2em;
+			display: inline;
+		}
+
+		.checklist {
+			background-color: transparent;
+			color: white;
+		}
+		.checklist tr:nth-child(even){
+			background-color: transparent;
+		}
+		.formE .radioButtons {
+			float: right;
+		}
+		.formE .textarea {
+			width: 100%;
+			float: left;
+			height: 150px;
+			color: black;
+			
+		}
+		.formE .specialB {
+			display: block;
+			margin-left: 30%;
+			width: 30%;
+			margin-top: 5%;
+			margin-bottom: 1%;
+		}
+		.buttons {
+			width: 60%;
+			margin-left: 20%;
+			background-color: #22EECF;
+		}
+		.calendar {
+			padding: 2px;
+		}
