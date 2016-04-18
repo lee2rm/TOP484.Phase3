@@ -23,10 +23,6 @@ public partial class Admin_ManageAccounts : System.Web.UI.Page
             // WebActivity.LogActivity("Manage Accounts Page", true);
             // TODO: replicate this webactivity functionality in all pages visited by students, teachers, parents, ciphers (once all session variables are squared away)
             // Track most viewed profiles when we get those going
-            // Add column for Total Logins and a column for UserType in Activity Log Table
-            // Keep names as general Activity names for displaying most viewed pages in tableau
-            // Possibly make an "Analytics" tab on administrator homepage, use DataTable to display listviews / graphs of data trends
-            // Add in ability to mass email everyone or mass email a certain group
         }
 
         GenerateTable();
@@ -92,7 +88,7 @@ public partial class Admin_ManageAccounts : System.Web.UI.Page
         cmd.ExecuteNonQuery();
         SqlDataAdapter adp = new SqlDataAdapter(cmd); // read in data from query results
         adp.Fill(dt);
-        txtSearch.Text = "";
+        //txtSearch.Text = "";
 
         return dt;
     }
@@ -414,10 +410,21 @@ public partial class Admin_ManageAccounts : System.Web.UI.Page
     {
         //System.Diagnostics.Debug.WriteLine("edit user clicked");
         LinkButton btn = (LinkButton)(sender);
-        string userID = btn.CommandArgument;
-        Session["userID"] = userID;
+        string emailAddress = btn.CommandArgument;
+        System.Diagnostics.Debug.WriteLine(emailAddress);
+        DataTable dt = new DataTable();
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+        connection.Open();
+        string cmdText = "select StudentBio from Student where EmailAddress = '" + emailAddress + "'";
+        SqlCommand cmd = new SqlCommand(cmdText, connection);
+        cmd.ExecuteNonQuery();
+        SqlDataAdapter adp = new SqlDataAdapter(cmd); // read in data from query results
+        adp.Fill(dt);
+        string pathbriteLink = dt.Rows[0][0].ToString();
+        System.Diagnostics.Debug.WriteLine(pathbriteLink);
+            
         // redirect Admin to specific user's profile 
-        Response.Redirect("ViewProfile.aspx");
+        Response.Redirect("ViewProfile.aspx?pathbrite=" + pathbriteLink);
     }
     #endregion
 

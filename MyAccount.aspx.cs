@@ -136,7 +136,6 @@ public partial class MyAccount : System.Web.UI.Page
             btnViewSchedule.Visible = false;
             btnEditInfo.Visible = false;
             imgProfile.Visible = false;
-
         }
 
 

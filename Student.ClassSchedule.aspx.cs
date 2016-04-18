@@ -7,11 +7,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 public partial class Student_ClassSchedule : System.Web.UI.Page
 {
-    //TODO: track bucks thru attendance 
-    // 
+
+    bool studentLevelCheck = false;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         GenerateTable();
@@ -163,17 +165,63 @@ public partial class Student_ClassSchedule : System.Web.UI.Page
         return dt;
     }
 
+    protected void upgradeCheck()
+    {
+        System.Diagnostics.Debug.WriteLine("semester end method entered");
+        DataTable dt = new DataTable();
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+        connection.Open();
+        string cmdText = "select COUNT(PresentBool) as Attended from Attendance where EmailAddress = '" + Session["UserID"].ToString() + "' AND PresentBool = 1";
+        SqlCommand cmd = new SqlCommand(cmdText, connection);
+        cmd.ExecuteNonQuery();
+        SqlDataAdapter adp = new SqlDataAdapter(cmd); // read in data from query results
+        adp.Fill(dt);
+        double attended = (int)dt.Rows[0][0];
+        DataTable dt2 = new DataTable();
+        cmd.CommandText = "select COUNT(PresentBool) as Total from Attendance where EmailAddress = '" + Session["UserID"].ToString() + "'";
+        cmd.ExecuteNonQuery();
+        SqlDataAdapter adp2 = new SqlDataAdapter(cmd);
+        adp2.Fill(dt2);
+        double total = (int)dt2.Rows[0][0];
+        double attendancePercent = attended / total;
+        if (attendancePercent > .8000)
+        {
+            try
+            {
+                cmd.CommandText = "update Student set StudentLevel = 'Beginner Apprentice', TotalBucks = (TotalBucks + 50) where EmailAddress = '" + Session["UserID"].ToString() + "'";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Congratulations! You attended 80% or more of your classes this semester! You have earned 50 WBL Bucks and have progressed from Sojourner to Beginner Apprentice.");
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(e.ToString());
+                System.Diagnostics.Debug.WriteLine(error.ToString());
+            }
+        }
+        studentLevelCheck = true;
+    }
     // ondayrender for each day (e.cell) as calendar is being constructed
     protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
     {
-        System.Diagnostics.Debug.WriteLine("Calendar Day: " + e.Day.Date.DayOfWeek.ToString());
+        
+        DateTime semesterEnd = new DateTime(2016, 6, 11);
+        System.Diagnostics.Debug.WriteLine(e.Day.Date.ToString());
+        if ((e.Day.Date.ToString() == "6/11/2016 12:00:00 AM") || (e.Day.Date > semesterEnd ))
+        {
+            if (studentLevelCheck == false)
+            {
+                upgradeCheck();
+            }
+        }
+
+        //System.Diagnostics.Debug.WriteLine("Calendar Day: " + e.Day.Date.DayOfWeek.ToString());
         e.Cell.Attributes.Add("OnClick", e.SelectUrl);
         if (e.Day.IsToday)
         {
             // Outline today's date cell
             e.Cell.BorderColor = System.Drawing.Color.Black;
             e.Cell.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            e.Cell.BorderStyle = BorderStyle.Solid;
+            e.Cell.BorderStyle = System.Web.UI.WebControls.BorderStyle.Solid;
             e.Cell.BorderWidth = 2;
         }
 
@@ -189,9 +237,9 @@ public partial class Student_ClassSchedule : System.Web.UI.Page
                 string sectionID = dt.Rows[i][2].ToString();
                 System.Diagnostics.Debug.WriteLine(courseTime);
                 int index = courseTime.IndexOf(' ');
-                System.Diagnostics.Debug.WriteLine(index);
+          //      System.Diagnostics.Debug.WriteLine(index);
                 string dayOfWeek = courseTime.Substring(0, index);
-                System.Diagnostics.Debug.WriteLine(dayOfWeek);
+            //    System.Diagnostics.Debug.WriteLine(dayOfWeek);
                 string meetTime = courseTime.Substring(index + 1);
                 // If an EventDate from our datatable is equal to each day's date as its being rendered
                 if (e.Day.Date.DayOfWeek.ToString() == dayOfWeek)
@@ -206,12 +254,12 @@ public partial class Student_ClassSchedule : System.Web.UI.Page
                     // outline the datecell where an event is taking place
                     e.Cell.BorderColor = System.Drawing.Color.Aqua;
                     e.Cell.BackColor = System.Drawing.Color.Gray;
-                    e.Cell.BorderStyle = BorderStyle.Solid;
+                    e.Cell.BorderStyle = System.Web.UI.WebControls.BorderStyle.Solid;
                     e.Cell.BorderWidth = 2;
                     
 
                     // Label for going to a specific event to view or edit it
-                    Label b = new Label();
+                    System.Web.UI.WebControls.Label b = new System.Web.UI.WebControls.Label();
                     b.Font.Size = 12;
                     b.Font.Bold = true;
                     b.ForeColor = System.Drawing.Color.MediumVioletRed;

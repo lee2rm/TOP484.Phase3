@@ -274,7 +274,7 @@ public partial class Student_SearchClasses2 : System.Web.UI.Page
         String keyword = txtSearch.Text;
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         connection.Open();
-        string cmdText = "Select CourseID, CourseName, CourseElement, LessonPlan from Course WHERE Upper(CourseName) LIKE Upper(@keyword) OR Upper(CourseElement) LIKE (@keyword);";
+        string cmdText = "Select CourseID, CourseName, CourseElement, LessonPlan from Course WHERE Upper(CourseName) LIKE Upper(@keyword) OR Upper(CourseElement) LIKE Upper(@keyword);";
         System.Diagnostics.Debug.WriteLine(cmdText);
         SqlCommand cmd = new SqlCommand(cmdText, connection);
         cmd.Parameters.Add("@keyword", SqlDbType.VarChar).Value = "%" + keyword + "%";

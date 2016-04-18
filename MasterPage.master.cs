@@ -56,13 +56,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     }
 
-    protected void btnLogOut_Click(object sender, EventArgs e)
-    {
-        //FormsAuthentication.SignOut();
-        Session.Abandon();
-        Session.Clear();
-        Response.Redirect("Log-In.aspx");
-    }
+    //protected void btnLogOut_Click(object sender, EventArgs e)
+    //{
+    //    //FormsAuthentication.SignOut();
+    //    System.Diagnostics.Debug.WriteLine("log out pressed");
+    //    Session.Abandon();
+    //    Session.Clear();
+    //    Response.Redirect("Log-In.aspx");
+    //}
 
 
     /*

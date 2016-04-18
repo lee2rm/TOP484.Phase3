@@ -103,7 +103,9 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body" Runat="Server">
-   
+
+   <iframe title="Pathbrite Widget" runat="server" width="1280" height="1000" src="https://pathbrite.com/WordsBeatsLife/profile" frameborder="0" id="pathbrite" allowfullscreen></iframe>
+
 
     <div class="col-sm-10">
   
@@ -126,8 +128,7 @@
     <p>All of these professional and academic experiences prepared Mazi to take on the leadership of an organization dedicated to transformation.  This chapter in his life began in 2002, and after all these years, his leadership and vision are taking WBL into the next phase of its development as producer of creativity, innovation and excellence.</p>
 
   </div>
-         <iframe title="Pathbrite Widget" runat="server" width="1280" height="720" src="https://pathbrite.com/WordsBeatsLife/profile" frameborder="0" id="pathbrite" allowfullscreen></iframe>
-
+         
   </div>
 </asp:Content>
 

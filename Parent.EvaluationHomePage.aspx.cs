@@ -29,10 +29,18 @@ public partial class Parent_EvaluationHomePage : System.Web.UI.Page
             cmd.ExecuteNonQuery();
             SqlDataAdapter adp = new SqlDataAdapter(cmd); // read in data from query results
             adp.Fill(dt);
-            string studentID = dt.Rows[0][0].ToString();
-            System.Diagnostics.Debug.WriteLine(studentID);
-            // need to pass in the email address of whichever student is logged in to see their own evaluations
-            GenerateTable(studentID);
+            if (dt.Rows.Count > 0)
+            {
+                string studentID = dt.Rows[0][0].ToString();
+                System.Diagnostics.Debug.WriteLine(studentID);
+                // need to pass in the email address of whichever student is logged in to see their own evaluations
+                GenerateTable(studentID);
+            }
+            else
+            {
+                MessageBox.Show("Your student does not have any evaluations to view! Please check back at the end of the semester.");
+                Response.Redirect("Wall.aspx");
+            }
         }
         catch (SqlException error)
         {
